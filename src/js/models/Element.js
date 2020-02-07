@@ -1,3 +1,7 @@
 export const Elements = {
-    body:document.querySelector('body')
+    body:document.querySelector('body'),
+    monthCalendar:'',
+    CalendarHolder:'',
+    calendar:''
+    
 }

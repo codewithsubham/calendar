@@ -6,9 +6,13 @@ export const GlobalData = {
     monthAndDate:{
 
     },
-    DaysAndDates:[]
-    
-
+    DaysAndDates:[],
+    MouseXBuffer:'100',
+    startMouse:'',
+    monthIndex:5,
+    startTouch:'',
+    year:2020,
+    nextSliderCounter:0
 
 
 

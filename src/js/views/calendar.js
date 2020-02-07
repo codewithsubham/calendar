@@ -7,7 +7,7 @@ const GetFullYear = year =>{
             for (const i of GlobalData.DaysAndDates) {
                for (const j of i) {
                     for (const k in j) {
-                        console.log(j[k]);   
+                       // console.log(j[k]);   
                     } 
                 } 
             }
@@ -35,7 +35,7 @@ const Date = (month) => {
         // console.log(intervals);
         for (const i of GlobalData.DaysAndDates[month]) {
             for (const j in i) {
-                console.log(i[j])
+                //console.log(i[j])
                 dates = (i[j] == null) ? dates + `<li></li>` :(i[j] == GlobalData.todayDay) ? dates + `<li class='today'>${i[j]}</li>` : dates + `<li>${i[j]}</li>`
                 count++;
                 if(count > 7){
@@ -55,20 +55,40 @@ const Date = (month) => {
 const getOneMonth = month => {
     // for a single month;
     
-    const markup = `<CalendarHolder>
-    <Month_Calendar>
+    const markup = `
+    <Month_Calendar id=${GlobalData.months[month]}>
     <currentmonth>
-   
-    <span>${GlobalData.months[month]}</span> <span>${GlobalData.year}</span></currentmonth>
+     <span>${GlobalData.months[month]}</span> <span>${GlobalData.year}</span></currentmonth>
     <ul class='days'>${Days()}</ul>
     ${Date(month)}
-    </Month_Calendar>
     </CalendarHolder>`;
 
 //console.log(Elements.calendar);
 
-Elements.calendar.insertAdjacentHTML('afterbegin' , markup);
+
+
+Elements.CalendarHolder.insertAdjacentHTML('beforeend' , markup);
+
+// add elements to elements js
+
+Elements.monthCalendar = document.querySelector('Month_Calendar');
    
+}
+
+const ReturnOneMonth = month => {
+    // for a single month;
+    
+    const markup = `
+    <Month_Calendar id=${GlobalData.months[month]}>
+        <currentmonth>
+             <span>${GlobalData.months[month]}</span> <span>${GlobalData.year}</span></currentmonth>
+        <ul class='days'>${Days()}</ul>
+        ${Date(month)}
+    </CalendarHolder>`;
+
+    Elements.monthCalendar = document.querySelector('Month_Calendar');
+    
+    return markup
 }
 
 // exports functions
@@ -80,4 +100,11 @@ export const RenderOneMonth = (month) => {
 
 export const RenderYear = (year) => {
     GetFullYear(year);
+}
+
+export const renderChangedMonth = month => {
+   
+    
+   return ReturnOneMonth(month)
+
 }

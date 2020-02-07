@@ -59,17 +59,18 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 0 3rem;
+  display:none;
 }
 
 
 content{
-  height: calc(100vh - var(--header-height));
+  height: calc(100vh);
   display: flex;
 
 }
 
 time{
-  flex: 0 0 35%;
+  flex: 0 0 0%;
   flex-shrink: 0; 
   position: relative;
 }
@@ -81,16 +82,15 @@ calendar{
 
 calendarholder{
   position: absolute;
-  width: 90%;
-  height: calc((100vh - var(--header-height)) - 20rem);
-  top: 50%;
-  left: 0;
-  transform: translate(1%, -50%);
-  border-radius: 6px;
-  box-shadow: 0px 2px 9px 1px rgba(0, 0, 0, 0.15);
-
- background: linear-gradient(307.35deg, rgba(16, 14, 14, 0.95) -23.39%, rgba(25, 25, 25, 0.83) 131.21%);
-overflow: hidden;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 0;
+    transform: translate(0%, -50%);
+    border-radius: 0px;
+    box-shadow: 0px 2px 9px 1px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(307.35deg, rgba(16, 14, 14, 0.95) -23.39%, rgba(25, 25, 25, 0.83) 131.21%);
+    overflow: hidden;
   }
 
 ul{
@@ -116,7 +116,7 @@ li{
    font-weight: 700;
 }
 
-Month_Calendar:nth-child(1){
+Month_Calendar{
     height: 86%;
     display: flex;
     flex-direction: column;
@@ -127,23 +127,10 @@ Month_Calendar:nth-child(1){
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  
+    
    
 }
-Month_Calendar:nth-child(2){
-  height: 86%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 90%;
-  margin: 0 auto;
-  position: absolute;
-  top: 50%;
-  left: 145%;
-  transform: translate(-50%, -50%);
 
- 
-}
 
 currentmonth{
   width: 90%;
@@ -194,8 +181,4 @@ clock_container{
   box-shadow: 0px 2px 9px 1px rgba(0, 0, 0, 0.15);
   /* background-color: #000000cc; */
   background: linear-gradient(307.35deg, rgba(16, 14, 14, 0.95) -23.39%, rgba(25, 25, 25, 0.83) 131.21%)
-}
-
-logo svg{
-  width: 10rem;
 }
